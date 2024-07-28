@@ -12,6 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --one-hundred-percent: 100%;
+  --size-of-first-container: 250px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -37,15 +38,52 @@ body {
   flex-flow: column wrap;
   place-content: center;
 }
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-#mainContainer {
-  background-color: #747bff;
-  width: 150px;
-  height: 150px;
-  border-radius: 20px;
+  inset: 0;
 }
 /* BASIC RESET END */
+#mainContainer {
+  background-color: white;
+  border: #4322fc 10px solid;
+  width: var(--size-of-first-container);
+  height: var(--size-of-first-container);
+  border-radius: 20px;
+}
+img {
+  width: var(--one-hundred-percent);
+  height: var(--one-hundred-percent);
+}
+svg {
+  width: var(--one-hundred-percent);
+  animation: rotate 2s linear infinite;
+  height: var(--one-hundred-percent);
+}
+@keyframes rotate {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.3);
+  }
+}
+/* keyframe */
+
+#rosa-content {
+  /* visibility: hidden; */
+  /* opacity: 0.67; */
+  animation: opacityAnimation 3s linear infinite;
+}
+
+@keyframes opacityAnimation {
+  100% {
+    opacity: 0.1;
+  }
+}
+#borde-rosa {
+  /* visibility: hidden; */
+}
